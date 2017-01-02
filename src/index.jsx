@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Voting from './components/Voting'
 
-const pair = ['Hackers', '28 Days Later']
+const pair = ['Hackers', 'Fast & Furious']
 
 ReactDOM.render(
   <Voting pair={pair} />,
