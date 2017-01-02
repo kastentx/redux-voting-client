@@ -104,4 +104,28 @@ describe('reducer', () => {
     }))
   })
 
+  it('removed hasVoted on SET_STATE if pair changes', () => {
+    const initialState = fromJS({
+      vote: {
+        pair: ['Hackers', '28 Days Later'],
+        tally: {Hackers : 1}
+      }
+    })
+    const action = {
+      type: 'SET_STATE',
+      state: {
+        vote: {
+          pair: ['Star Wars', 'Poltergeist']
+        }
+      }
+    }
+    const nextState = reducer(initialState, action)
+
+    expect(nextState).to.equal(fromJS({
+      vote: {
+        pair: ['Star Wars', 'Poltergeist']
+      }
+    }))
+  })
+
 })
