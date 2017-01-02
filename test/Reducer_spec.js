@@ -16,7 +16,7 @@ describe('reducer', () => {
         })
       })
     }
-    const nextState = reducer(state, action)
+    const nextState = reducer(initialState, action)
 
     expect(nextState).to.equal(fromJS({
       vote: {
@@ -37,7 +37,7 @@ describe('reducer', () => {
         }
       }
     }
-    const nextState = reducer(state, action)
+    const nextState = reducer(initialState, action)
 
     expect(nextState).to.equal(fromJS({
       vote: {
