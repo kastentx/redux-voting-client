@@ -1,3 +1,3 @@
 # Redux Voting Client
 
-Built from scratch, without create-react-app.
+Built without create-react-app, by following this awesome Redux tutorial http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html
