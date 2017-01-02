@@ -67,4 +67,41 @@ describe('reducer', () => {
     }))
   })
 
+  it('handles VOTE by setting hasVoted', () => {
+    const state = fromJS({
+      vote: {
+        pair: ['Hackers', '28 Days Later'],
+        tally: {Hackers : 1}
+      }
+    })
+    const action = {type: 'VOTE', entry: 'Hackers'}
+    const nextState = reducer(state, action)
+
+    expect(nextState).to.equal(fromJS({
+      vote: {
+        pair: ['Hackers', '28 Days Later'],
+        tally: {Hackers : 1}
+      },
+      hasVoted: 'Hackers'
+    }))
+  })
+
+  it('does not set hasVoted for VOTE on invalid entry', () => {
+    const state = fromJS({
+      vote: {
+        pair: ['Hackers', '28 Days Later'],
+        tally: {Hackers : 1}
+      }
+    })
+    const action = {type: 'VOTE', entry: 'Star Wars'}
+    const nextState = reducer(state, action)
+
+    expect(nextState).to.equal(fromJS({
+      vote: {
+        pair: ['Hackers', '28 Days Later'],
+        tally: {Hackers : 1}
+      }
+    }))
+  })
+
 })
